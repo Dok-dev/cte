@@ -1,0 +1,7 @@
+projects_old
+.env
+static/*
+.git_vk
+SSO.md
+chat.md
+web-server.md

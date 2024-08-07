@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projects</title>
+</head>
+<body>
+    <h1>Projects</h1>
+    <ul>
+        {% for project in projects %}
+            <li>
+                <h2>{{ project.name }}</h2>
+                <p><strong>Private Cloud Passport:</strong> {{ project.private_cloud_passport.content }}</p>
+                <p><strong>S3 Passport:</strong> {{ project.s3_passport.content }}</p>
+                <p><strong>Minimal YAML:</strong> {{ project.minimal_yaml.content }}</p>
+                <h3>Project Documents:</h3>
+                <ul>
+                    {% for document in project.project_documents.all %}
+                        <li>{{ document.name }}: {{ document.content }}</li>
+                    {% endfor %}
+                </ul>
+                <h3>Equipment:</h3>
+                <ul>
+                    {% for equipment in project.equipment.all %}
+                        <li>{{ equipment.model }} ({{ equipment.get_type_display }})</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
